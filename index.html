@@ -8,6 +8,23 @@
 </head>
 <body>
 <script>
+window.onload = function() {
+  if (!window.tronWeb) {
+    const HttpProvider = TronWeb.providers.HttpProvider;
+    const fullNode = new HttpProvider('https://api.trongrid.io');
+    const solidityNode = new HttpProvider('https://api.trongrid.io');
+    const eventServer = 'https://api.trongrid.io/';
+    
+    const tronWeb = new TronWeb(
+        fullNode,
+        solidityNode,
+        eventServer,
+    );
+
+    window.tronWeb = tronWeb;
+  }
+};
+
     window.addEventListener('message', function (e) {
         if (e.data.message && e.data.message.action == "tabReply") {
             console.log("tabReply event", e.data.message)
