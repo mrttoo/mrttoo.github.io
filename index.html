@@ -10,8 +10,13 @@
     <button onclick="gettronweb()">Can you get tronweb from tronlink?</button>
     <script>
         function gettronweb(){
-            if(window.tronWeb && window.tronWeb.defaultAddress.base58){
-				alert("Yes, catch it:" + window.tronWeb.defaultAddress.base58);
+            if(window.tronWeb) {
+				if(window.tronWeb.defaultAddress.base58){
+					alert("Yes, catch it:" + window.tronWeb.defaultAddress.base58);
+				}
+				else {
+					alert("tronWeb");
+				}
             }
         }
     </script>
