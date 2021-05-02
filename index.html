@@ -15,11 +15,14 @@
   <input type="text" id="sendAddr" name="sendAddr"><br />
   Send amount
   <input type="text" id="sendAmount" name="sendAmount"><br />
-  <button onclick="send()">Send</button>
+  <button onclick="sendTrx()">Send</button>
   <br /><br /><br />
   <script>
-    function send() {
+    async function sendTrx() {
+      console.log("sendTrx");
+
       if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+        console.log("sendTrx1");
 
         var myAddr = document.getElementById("myAddr").value;
         var sendAddr = document.getElementById("sendAddr").value;
