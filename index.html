@@ -33,12 +33,17 @@
           return;
         }
 
-        var tronweb = window.tronWeb
-        var tx = await tronweb.transactionBuilder.sendTrx(myAddr, sendAmount, sendAddr)
-        var signedTx = await tronweb.trx.sign(tx)
-        var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
-        console.log(broastTx)
-        alert("송금완료!");
+        try {
+          var tronweb = window.tronWeb
+          var tx = await tronweb.transactionBuilder.sendTrx(myAddr, sendAmount, sendAddr)
+          var signedTx = await tronweb.trx.sign(tx)
+          var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+          console.log(broastTx)
+          alert("송금완료!");
+        }
+        catch (err) {
+          alert("송금 에러! " + err);
+        }
       }
     }
 
