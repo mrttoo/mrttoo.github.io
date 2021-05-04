@@ -39,10 +39,11 @@
 		  var hexSendAddr = tronWeb.toHex(sendAddr);
 		  console.log("hexMyAddr : " + hexMyAddr);
 		  console.log("hexSendAddr : " + hexSendAddr);
-          var tx = await tronweb.transactionBuilder.sendTrx(sendAddr, sendAmount, myAddr)
-          var signedTx = await tronweb.trx.sign(tx)
-          var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
-          console.log(broastTx)
+          //var tx = await tronweb.transactionBuilder.sendTrx(sendAddr, sendAmount, myAddr)
+          //var signedTx = await tronweb.trx.sign(tx)
+          //var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+          tronweb.trx.sendTransaction(sendAddr, sendAmount);
+		  console.log(broastTx)
           alert("송금완료!");
         }
         catch (err) {
