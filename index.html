@@ -34,8 +34,12 @@
         }
 
         try {
-          var tronweb = window.tronWeb
-          var tx = await tronweb.transactionBuilder.sendTrx(myAddr, sendAmount, sendAddr)
+          var tronweb = window.tronWeb;
+		  var hexMyAddr = tronWeb.toHex(myAddr);
+		  var hexSendAddr = tronWeb.toHex(sendAddr);
+		  console.log("hexMyAddr : " + hexMyAddr);
+		  console.log("hexSendAddr : " + hexSendAddr);
+          var tx = await tronweb.transactionBuilder.sendTrx(hexSendAddr, sendAmount, hexMyAddr)
           var signedTx = await tronweb.trx.sign(tx)
           var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
           console.log(broastTx)
